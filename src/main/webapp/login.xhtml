@@ -7,6 +7,7 @@
 
     <ui:define name="styles">
         <link href="./css/inscricao.css" rel="stylesheet" type="text/css" />
+        <link href="./css/layout.css" rel="stylesheet" type="text/css" />
     </ui:define>
 
     <ui:define name="metadata">
@@ -20,18 +21,20 @@
             <div class="titulo-form">LOGIN</div>
             <h:panelGroup styleClass="form-block" layout="block">
                 <h:outputLabel value="Usuário" style="display: inline-block; width: 50px"/>
-                <h:inputText/>
+                <h:inputText required="true" value="#{loginBean.usuario}"/>
             </h:panelGroup>
             <h:panelGroup styleClass="form-block" layout="block">
                 <h:outputLabel value="Senha" style="display: inline-block; width: 50px"/>
-                <h:inputSecret/>
+                <h:inputSecret required="true" value="#{loginBean.senha}"/>
             </h:panelGroup>
             <h:panelGroup styleClass="form-block" layout="block">
-                <h:selectBooleanCheckbox/>
+                <h:selectBooleanCheckbox value="#{loginBean.administrador}"/>
                 <h:outputText value="Administrador"/>
             </h:panelGroup>
-            <h:commandButton value="Entrar"/>
-            <h:messages/>
+            <h:commandButton value="Entrar" action="#{loginBean.loginAction}"/>
+            <h:panelGroup styleClass="msgerro">
+                <h:messages/>
+            </h:panelGroup>            
         </h:form>
     </ui:define>
 

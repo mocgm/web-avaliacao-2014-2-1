@@ -17,6 +17,39 @@
 
     <ui:define name="content">
         <h:form>
+            <h:panelGroup styleClass="form-block" layout="block">
+                <h:outputLabel value="Usuário:"/> 
+                <ui:insert name="top">
+                    <img src="imagens/usuario.png" alt=""/>
+                </ui:insert>
+                <h:outputLabel value="#{loginBean.textoAdmin}"/> 
+            </h:panelGroup>
+                        
+            <div class="titulo-form">LISTA DE LOGINS</div>
+                <h:dataTable id="candidatos"
+                    summary="Candidatos inscritos"
+                    value="#{appBean.list}"
+                    border="1"
+                    var="item">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="NOME" />
+                    </f:facet>
+                    <h:outputText id="nome" value="#{item.nome}" title="Nome">
+                    </h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Data" />
+                    </f:facet>
+                    <h:outputText id="data" value="#{item.data}"  title="Data">
+                    </h:outputText>
+                </h:column>                                
+                </h:dataTable>
+                <h:commandButton value="Login" action="login.xhtml"/>
+                <h:commandButton value="Cadastro" action="cadastro.xhtml"/>
+                <h:messages/>
+            
         </h:form>
     </ui:define>
 
